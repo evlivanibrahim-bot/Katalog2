@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şamlı Oto Aksesuar - Araç Teknik Katalog & Aksesuar Rehberi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- LOGO & BRAND -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-red-600 flex items-center justify-center shadow-lg shadow-amber-500/20 border border-amber-400/30 overflow-hidden p-1">
+                    <svg viewBox="0 0 100 100" class="w-full h-full fill-white drop-shadow">
+                        <!-- Flame / Speedometer Icon -->
+                        <path d="M50 10 C30 10 15 25 15 45 C15 65 35 85 50 90 C65 85 85 65 85 45 C85 25 70 10 50 10 Z" fill="#111827"/>
+                        <path d="M50 15 C33 15 20 28 20 45 C20 62 36 80 50 84 C64 80 80 62 80 45 C80 28 67 15 50 15 Z" fill="#ef4444"/>
+                        <path d="M35 55 L50 30 L65 55 Z" fill="#f59e0b"/>
+                        <circle cx="50" cy="55" r="8" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-amber-500 font-extrabold block">ŞAMLI</span>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
+                        OTO AKSESUAR <span class="text-amber-500 text-sm font-medium px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20">Katalog v5.0</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- STATS COUNTER -->
+            <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+                <div class="flex items-center gap-2 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700/50">
+                    <i class="fa-solid fa-car text-amber-500"></i>
+                    <span>Toplam Model: <strong class="text-white font-bold">280+ Varyant</strong></span>
+                </div>
+                <div class="flex items-center gap-2 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700/50">
+                    <i class="fa-solid fa-wrench text-amber-500"></i>
+                    <span>Silecek / Jant / Far Verisi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO / SEARCH SECTION -->
+    <section class="relative py-12 bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                Araç Teknik Özellik ve Aksesuar Rehberi
+            </h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-8 text-sm sm:text-base">
+                Fiat, Ford (Transit dahil tüm seriler), Renault, Opel, Peugeot, Toyota, Hyundai, Dacia ve Honda markalarının 1999–2026 yılları arası tüm jenerasyonlarının silecek ölçüleri, bijon aralıkları, far ampulleri ve fiziksel ölçüleri.
+            </p>
+
+            <!-- SEARCH & FILTERS -->
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-3">
+                <div class="relative flex-1">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="Model ara (Örn: Symbol, Transit, Egea, Corolla, Focus)..." 
+                        class="w-full pl-11 pr-4 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-sm shadow-inner">
+                </div>
+                <div class="w-full md:w-56">
+                    <select id="brandFilter" class="w-full py-3.5 px-4 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-amber-500 text-sm shadow-inner cursor-pointer">
+                        <option value="ALL">Tüm Markalar</option>
+                        <option value="Fiat">Fiat</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Renault">Renault</option>
+                        <option value="Opel">Opel</option>
+                        <option value="Peugeot">Peugeot</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Dacia">Dacia</option>
+                        <option value="Honda">Honda</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG GRID SECTION -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div id="catalogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamically populated by JS -->
+        </div>
+        <div id="noResults" class="hidden text-center py-16">
+            <i class="fa-solid fa-car-burst text-5xl text-slate-600 mb-4"></i>
+            <h3 class="text-xl font-bold text-slate-300">Aradığınız kriterlere uygun araç bulunamadı.</h3>
+            <p class="text-slate-500 text-sm mt-1">Farklı bir arama terimi deneyebilir veya filtreyi sıfırlayabilirsiniz.</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+                <p>&copy; 2026 <strong>Şamlı Oto Aksesuar</strong>. Tüm hakları saklıdır.</p>
+            </div>
+            <p class="text-xs text-slate-500">Profesyonel Silecek, Jant, Ampul ve Ölçü Veritabanı</p>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP FOR DETAILS -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modalContent" class="p-6 sm:p-8">
+                <!-- Modal Details injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DATABASE & LOGIC -->
+    <script>
+        const carData = [
+            // --- FIAT ---
+            {
+                brand: "Fiat", model: "Egea Sedan", years: "2015–2026", category: "Sedan / Aile",
+                image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.53 m | Genişlik: 1.79 m | Yükseklik: 1.49 m | Dingil: 2.63 m",
+                wiper: "Sürücü: 650 mm | Yolcu: 400 mm | Arka: N/A",
+                pcd: "4x98 | Göbek: 58.1 mm | Bijon: M12x1.25",
+                bulb: "Kısa/Uzun: H7 | Sis: H11 | Park: W5W"
+            },
+            {
+                brand: "Fiat", model: "Egea Hatchback / Cross", years: "2016–2026", category: "Hatchback / SUV",
+                image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c351?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.37 m | Genişlik: 1.80 m | Yükseklik: 1.50 m | Dingil: 2.63 m",
+                wiper: "Sürücü: 650 mm | Yolcu: 400 mm | Arka: 330 mm",
+                pcd: "5x98 (Cross: 5x110) | Göbek: 58.1 mm",
+                bulb: "Ön Far: H7 / LED | Sis: H11"
+            },
+            {
+                brand: "Fiat", model: "Linea", years: "2007–2021", category: "Sedan / Aile",
+                image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.56 m | Genişlik: 1.73 m | Yükseklik: 1.49 m | Dingil: 2.60 m",
+                wiper: "Sürücü: 600 mm | Yolcu: 450 mm | Arka: N/A",
+                pcd: "4x98 | Göbek: 58.1 mm | Bijon: M12x1.25",
+                bulb: "Kısa: H7 | Uzun: H1 | Sis: H1"
+            },
+            {
+                brand: "Fiat", model: "Grande Punto / Punto", years: "2005–2018", category: "Hatchback",
+                image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.03 m | Genişlik: 1.68 m | Yükseklik: 1.49 m | Dingil: 2.51 m",
+                wiper: "Sürücü: 650 mm | Yolcu: 380 mm | Arka: 350 mm",
+                pcd: "4x100 | Göbek: 56.6 mm | Bijon: M12x1.5",
+                bulb: "Kısa/Uzun: H4 veya H7 | Sis: H1"
+            },
+            {
+                brand: "Fiat", model: "Fiorino", years: "2007–2026", category: "Hafif Ticari",
+                image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 3.95 m | Genişlik: 1.71 m | Yükseklik: 1.72 m | Dingil: 2.51 m",
+                wiper: "Sürücü: 650 mm | Yolcu: 480 mm | Arka: 400 mm",
+                pcd: "4x98 | Göbek: 58.1 mm | Bijon: M12x1.25",
+                bulb: "Kısa/Uzun: H4 | Sis: H11"
+            },
+            {
+                brand: "Fiat", model: "Doblo (1. & 2. & 3. Nesil)", years: "2000–2026", category: "Hafif Ticari",
+                image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.39 m - 4.74 m | Genişlik: 1.83 m | Yükseklik: 1.84 m",
+                wiper: "Sürücü: 600 mm | Yolcu: 450 mm | Arka: 400 mm",
+                pcd: "5x98 veya 5x108 | Göbek: 58.1 mm",
+                bulb: "Kısa: H7 | Uzun: H1 | Sis: H11"
+            },
+            {
+                brand: "Fiat", model: "Palio / Albea", years: "1999–2012", category: "Sedan / Hatchback",
+                image: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.21 m | Genişlik: 1.63 m | Yükseklik: 1.49 m | Dingil: 2.43 m",
+                wiper: "Sürücü: 550 mm | Yolcu: 450 mm | Arka: 380 mm",
+                pcd: "4x98 | Göbek: 58.1 mm",
+                bulb: "Kısa/Uzun: H4 | Sis: H1"
+            },
+
+            // --- FORD (Transit ve Tüm Seriler) ---
+            {
+                brand: "Ford", model: "Transit Van / Minibüs (Tüm Kasa & Nesiller)", years: "1999–2026", category: "Ticari / Minibüs",
+                image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 5.20m - 6.70m | Genişlik: 2.05 m | Yükseklik: 2.40m–2.78m",
+                wiper: "Sürücü: 700 mm | Yolcu: 650 mm (Çift Silecek)",
+                pcd: "5x160 veya 6x180 | Göbek: 65.1 mm / 150 mm",
+                bulb: "Kısa: H7 / H15 | Uzun: H1 | Sis: H11"
+            },
+            {
+                brand: "Ford", model: "Transit Custom", years: "2012–2026", category: "Hafif Ticari",
+                image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.97 m - 5.34 m | Genişlik: 2.03 m | Yükseklik: 1.96 m",
+                wiper: "Sürücü: 750 mm | Yolcu: 400 mm",
+                pcd: "5x160 | Göbek: 65.1 mm",
+                bulb: "Kısa: H7 | Uzun: H15 | Sis: H11"
+            },
+            {
+                brand: "Ford", model: "Transit Courier", years: "2014–2026", category: "Hafif Ticari",
+                image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.15 m | Genişlik: 1.80 m | Yükseklik: 1.75 m | Dingil: 2.48 m",
+                wiper: "Sürücü: 650 mm | Yolcu: 400 mm | Arka: 350 mm",
+                pcd: "4x108 | Göbek: 63.4 mm",
+                bulb: "Kısa: H7 | Uzun: H1 | Sis: H11"
+            },
+            {
+                brand: "Ford", model: "Transit Connect", years: "2002–2026", category: "Hafif Ticari",
+                image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c351?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.42 m - 4.82 m | Genişlik: 1.83 m | Yükseklik: 1.83 m",
+                wiper: "Sürücü: 650 mm | Yolcu: 400 mm",
+                pcd: "5x108 | Göbek: 63.4 mm",
+                bulb: "Kısa: H7 | Uzun: H1 | Sis: H11"
+            },
+            {
+                brand: "Ford", model: "Focus (I, II, III, IV)", years: "1999–2026", category: "Hatchback / Sedan",
+                image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 4.38 m - 4.67 m | Genişlik: 1.82 m | Yükseklik: 1.47 m",
+                wiper: "Sürücü: 700 mm | Yolcu: 700 mm (Focus III/IV) veya 600/475 (Focus II)",
+                pcd: "5x108 | Göbek: 63.4 mm | Bijon: M12x1.5",
+                bulb: "Kısa: H7 / Bi-Xenon / LED | Uzun: H1 | Sis: H11"
+            },
+            {
+                brand: "Ford", model: "Fiesta (MK5, MK6, MK7, MK8)", years: "1999–2023", category: "Hatchback",
+                image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80",
+                dims: "Boy: 3.92 m - 4.06 m | Genişlik: 1.73 m | Yükseklik: 1.46 m",
+                wiper: "Sürücü: 650 mm | Yolcu: 380 mm | Arka: 300 mm",
+                pcd: "4x108 (MK8: 4x108)",
+                bulb: "Kı
